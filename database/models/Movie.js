@@ -1,16 +1,16 @@
 module.exports = (sequelize, DataTypes) => {
-    const Movie = sequielize.define('Movie', {
+    const Movie = sequelize.define('Movie', {
         title: DataTypes.STRING,
         rating: DataTypes.DECIMAL,
         awards: DataTypes.NUMBER,
         release_date: DataTypes.DATE,
-        length: DataTypes.DATE
+        length: DataTypes.NUMBER
     }, {
         createdAt: 'created_at',
-        updateAt: 'updated_at'
+        updatedAt: 'updated_at'
     });
 
-    Movie.associate = models = {
+    Movie.associate = models => {
         Movie.belongsTo(models.Genre, {
             as: 'genre',
             foreignKey: 'genre_id'
