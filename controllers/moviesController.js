@@ -7,9 +7,12 @@ module.exports = {
         .findAll()
         .then(movies => {
             return res.status(200).json({
-                total: movies.length,
-                data: movies,
-                status: 200
+                meta: {
+                    total: movies.length,
+                    status: 200,
+                    url: '/movies'
+                },
+                data: movies
             });
         });
     },
